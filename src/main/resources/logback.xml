@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <property name="LOG_LOCATION" value="/var/log/responder"/>
+    <property name="ARCHIVE_LOCATION" value="/var/log/responder"/>
+    <appender name="Responder" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_LOCATION}/responder.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${ARCHIVE_LOCATION}/archive/%d{yyyy-MM-dd}/responder-%d{yyyy-MM-dd_HH-mm,aux}.log.gz
+            </fileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <logger name="ru.mityushin.responder" level="DEBUG"/>
+    <root level="INFO">
+        <appender-ref ref="Responder"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
