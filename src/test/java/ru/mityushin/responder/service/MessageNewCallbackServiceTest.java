@@ -89,7 +89,7 @@ public class MessageNewCallbackServiceTest {
 
     @Test
     public void handleValidCallback() {
-        Map<String, String> objectMap = new LinkedHashMap<>();
+        Map<String, Object> objectMap = new LinkedHashMap<>();
         objectMap.put("id", "0");
         objectMap.put("date", "1");
         objectMap.put("peer_id", "2");

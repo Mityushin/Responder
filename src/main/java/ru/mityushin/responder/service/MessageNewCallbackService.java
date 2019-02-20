@@ -54,13 +54,13 @@ public class MessageNewCallbackService implements CallbackService {
     }
 
     private static MessageNewCallback parseMessageNewCallback(CallbackDto callbackDto) {
-        Map<String, String> map = callbackDto.getObject();
+        Map<String, Object> map = callbackDto.getObject();
         return MessageNewCallback.builder()
-                .id(Long.parseLong(map.get("id")))
-                .date(Long.parseLong(map.get("date")))
-                .peerId(Long.parseLong(map.get("peer_id")))
-                .fromId(Long.parseLong(map.get("from_id")))
-                .text(map.get("text"))
+                .id(Long.parseLong(String.valueOf(map.get("id"))))
+                .date(Long.parseLong(String.valueOf(map.get("date"))))
+                .peerId(Long.parseLong(String.valueOf(map.get("peer_id"))))
+                .fromId(Long.parseLong(String.valueOf(map.get("from_id"))))
+                .text("Вы сказали: " + map.get("text"))
                 .groupId(callbackDto.getGroupId())
                 .build();
     }

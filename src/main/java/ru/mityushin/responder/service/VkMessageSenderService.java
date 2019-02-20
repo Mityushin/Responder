@@ -19,14 +19,16 @@ public class VkMessageSenderService implements MessageSenderService<MessagesSend
 
     @Override
     public void send(MessagesSendDto message) {
+        message.setRandomId((long) message.hashCode());
         URI uri = vkUriCreator.createUri(message);
         ResponseEntity<MessagesSendResultDto> responseEntity = restTemplate.getForEntity(uri, MessagesSendResultDto.class);
         validateResponse(responseEntity);
     }
 
     private void validateResponse(ResponseEntity<MessagesSendResultDto> responseEntity) {
-        if (!Objects.requireNonNull(responseEntity.getBody()).getError().isEmpty()) {
-            throw new MessageSenderException("Response from VK contains errors");
+        MessagesSendResultDto.MessagesSendErrorResultDto error = Objects.requireNonNull(responseEntity.getBody()).getError();
+        if (error != null && error.getErrorCode() != null) {
+            throw new MessageSenderException(error.getErrorMsg());
         }
     }
 }
