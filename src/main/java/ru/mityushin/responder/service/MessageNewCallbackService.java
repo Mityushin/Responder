@@ -46,7 +46,7 @@ public class MessageNewCallbackService implements CallbackService {
     private void handleMessageNew(MessageNewCallback messageNewCallback) {
         MessageNewCallback saved = messageNewCallbackRepository.save(messageNewCallback);
         MessagesSendDto dto = MessagesSendDto.builder()
-                .userId(saved.getFromId())
+                .peerId(saved.getPeerId())
                 .message(saved.getText())
                 .groupId(saved.getGroupId())
                 .build();
