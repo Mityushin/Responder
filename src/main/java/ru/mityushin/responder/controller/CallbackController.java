@@ -12,19 +12,20 @@ import ru.mityushin.responder.dto.CallbackDto;
 import ru.mityushin.responder.service.CallbackService;
 
 @Controller
-@RequestMapping(value = "/callback")
+@RequestMapping(value = "/callbacks")
 @RequiredArgsConstructor
 public class CallbackController {
     private static final Logger LOG = LoggerFactory.getLogger(CallbackController.class);
+    private static final String DEFAULT_RESPONSE = "ok";
     private final CallbackService callbackService;
 
     @PostMapping
     public ResponseEntity<String> handleCallback(CallbackDto callbackDto) {
         try {
-            callbackService.handleCallback(callbackDto);
+            return new ResponseEntity<>(callbackService.handleCallback(callbackDto), HttpStatus.OK);
         } catch (RuntimeException e) {
             LOG.error(e.getMessage(), e);
         }
-        return new ResponseEntity<>("ok", HttpStatus.OK);
+        return new ResponseEntity<>(DEFAULT_RESPONSE, HttpStatus.OK);
     }
 }

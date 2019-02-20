@@ -16,6 +16,6 @@ public class CallbackDto {
     private String secret;
 
     public enum CallbackType {
-        message_new
+        message_new, confirmation
     }
 }

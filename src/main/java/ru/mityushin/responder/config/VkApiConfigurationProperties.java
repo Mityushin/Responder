@@ -20,4 +20,6 @@ public class VkApiConfigurationProperties {
     private Double v;
     @NotBlank
     private String secret;
+    @NotBlank
+    private String confirmation;
 }

@@ -78,7 +78,7 @@ public class MessageNewCallbackServiceTest {
         callbackService.handleCallback(invalid);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test(expected = NullPointerException.class)
     public void handleUnsupportedTypeCallback() {
         CallbackDto unsupported = CallbackDto.builder()
                 .secret(SECRET)

@@ -10,6 +10,7 @@ import ru.mityushin.responder.repo.MessageNewCallbackRepository;
 
 import java.security.InvalidParameterException;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -19,13 +20,20 @@ public class MessageNewCallbackService implements CallbackService {
     private final MessageSenderService<MessagesSendDto> messageSenderService;
 
     @Override
-    public void handleCallback(CallbackDto callbackDto) {
+    public String handleCallback(CallbackDto callbackDto) {
         validateSecret(callbackDto);
-        if (CallbackDto.CallbackType.message_new.equals(callbackDto.getType())) {
-            MessageNewCallback messageNewCallback = parseMessageNewCallback(callbackDto);
-            handleMessageNew(messageNewCallback);
-        } else {
-            throw new UnsupportedOperationException("Service support only 'message_new' callback type");
+        switch (Objects.requireNonNull(callbackDto.getType())) {
+            case confirmation: {
+                return vkApiConfigurationProperties.getConfirmation();
+            }
+            case message_new: {
+                MessageNewCallback messageNewCallback = parseMessageNewCallback(callbackDto);
+                handleMessageNew(messageNewCallback);
+                return "ok";
+            }
+            default: {
+                throw new UnsupportedOperationException("Service support only 'message_new' callback type");
+            }
         }
     }
 
