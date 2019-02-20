@@ -13,10 +13,8 @@ public class MessageNewCallback {
     @Id
     private Long id;
     private Long date;
-    private Long out;
-    private Long userId;
-    private Long readState;
-    private String title;
-    private String body;
+    private Long peerId;
+    private Long fromId;
+    private String text;
     private Long groupId;
 }

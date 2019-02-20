@@ -11,7 +11,7 @@ import java.util.Map;
 public class CallbackDto {
     private CallbackType type;
     private Map<String, String> object;
-    @JsonProperty(value = "groupId")
+    @JsonProperty(value = "group_id")
     private Long groupId;
     private String secret;
 

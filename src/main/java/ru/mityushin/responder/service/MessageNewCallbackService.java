@@ -21,7 +21,7 @@ public class MessageNewCallbackService implements CallbackService {
     @Override
     public void handleCallback(CallbackDto callbackDto) {
         validateSecret(callbackDto);
-        if (callbackDto.getType().equals(CallbackDto.CallbackType.message_new)) {
+        if (CallbackDto.CallbackType.message_new.equals(callbackDto.getType())) {
             MessageNewCallback messageNewCallback = parseMessageNewCallback(callbackDto);
             handleMessageNew(messageNewCallback);
         } else {
@@ -38,8 +38,8 @@ public class MessageNewCallbackService implements CallbackService {
     private void handleMessageNew(MessageNewCallback messageNewCallback) {
         MessageNewCallback saved = messageNewCallbackRepository.save(messageNewCallback);
         MessagesSendDto dto = MessagesSendDto.builder()
-                .userId(saved.getUserId())
-                .message(saved.getBody())
+                .userId(saved.getFromId())
+                .message(saved.getText())
                 .groupId(saved.getGroupId())
                 .build();
         messageSenderService.send(dto);
@@ -50,11 +50,9 @@ public class MessageNewCallbackService implements CallbackService {
         return MessageNewCallback.builder()
                 .id(Long.parseLong(map.get("id")))
                 .date(Long.parseLong(map.get("date")))
-                .out(Long.parseLong(map.get("out")))
-                .userId(Long.parseLong(map.get("userId")))
-                .readState(Long.parseLong(map.get("readState")))
-                .title(map.get("title"))
-                .body(map.get("body"))
+                .peerId(Long.parseLong(map.get("peer_id")))
+                .fromId(Long.parseLong(map.get("from_id")))
+                .text(map.get("text"))
                 .groupId(callbackDto.getGroupId())
                 .build();
     }
