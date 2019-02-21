@@ -27,14 +27,14 @@
 > | vk.api.confirmation | Callback API confirmation string |
 
 #### 3. Create directory for logs
-> On Windows host: `sudo mkdir /var/log/responder`
+> On Linux host: `sudo mkdir /var/log/responder`
 >
-> On Linux host: `mkdir C:\var\log\responder`
+> On Windows host: `mkdir C:\var\log\responder`
 
 #### 4. Build jar
-> On Windows host: `mvnw.cmd clean package`
->
 > On Linux host: `./mvnw clean package`
+>
+> On Windows host: `mvnw.cmd clean package`
 
 #### 5. Run application
 You have two ways to run this application:
@@ -43,7 +43,7 @@ You have two ways to run this application:
 
 ##### Way 1. Run with java
 > `java -jar targer/Responder.jar`
->
+
 ##### Way 2. Run with Docker
 > ###### 1. Build docker image
 >
