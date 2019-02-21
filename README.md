@@ -18,6 +18,13 @@
 #### 2. Setup VK API properties
 > 1. Open `src/main/resources/vk.properties`
 > 2. Specify params gotten from VK
+>
+> | Variable name       | Description                      |
+> |---------------------|----------------------------------|
+> | vk.api.access-token | VK API access token              |
+> | vk.api.v            | VK API usage version             |
+> | vk.api.secret       | Callback API secret key          |
+> | vk.api.confirmation | Callback API confirmation string |
 
 #### 3. Create directory for logs
 > On Windows host: `sudo mkdir /var/log/responder`
