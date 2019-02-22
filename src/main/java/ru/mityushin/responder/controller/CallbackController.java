@@ -1,8 +1,6 @@
 package ru.mityushin.responder.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,18 +15,11 @@ import ru.mityushin.responder.service.CallbackService;
 @RequestMapping(value = "/callbacks")
 @RequiredArgsConstructor
 public class CallbackController {
-    private static final Logger LOG = LoggerFactory.getLogger(CallbackController.class);
-    private static final String DEFAULT_RESPONSE = "ok";
     private final CallbackService callbackService;
 
     @PostMapping
     @ResponseBody
     public ResponseEntity<String> handleCallback(@RequestBody CallbackDto callbackDto) {
-        try {
-            return new ResponseEntity<>(callbackService.handleCallback(callbackDto), HttpStatus.OK);
-        } catch (RuntimeException e) {
-            LOG.error(e.getMessage(), e);
-        }
-        return new ResponseEntity<>(DEFAULT_RESPONSE, HttpStatus.OK);
+        return new ResponseEntity<>(callbackService.handleCallback(callbackDto), HttpStatus.OK);
     }
 }
