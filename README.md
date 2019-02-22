@@ -1,6 +1,7 @@
 # Responder
 
 [![Build Status](https://travis-ci.org/Mityushin/Responder.svg?branch=master)](https://travis-ci.org/Mityushin/Responder)
+[![Coverage Status](https://coveralls.io/repos/github/Mityushin/Responder/badge.svg?branch=master)](https://coveralls.io/github/Mityushin/Responder?branch=add-coveralls)
 [![License: GPLv3.0](https://img.shields.io/badge/License-GPLv3.0-blue.svg)](https://github.com/Mityushin/Responder/blob/master/LICENSE)
 
 #### Requires:
