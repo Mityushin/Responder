@@ -5,7 +5,6 @@
 [![License: GPLv3.0](https://img.shields.io/badge/License-GPLv3.0-blue.svg)](https://github.com/Mityushin/Responder/blob/master/LICENSE)
 
 #### Requires:
-* [Git](https://git-scm.com/)
 * [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * (optional) [Docker](https://www.docker.com/)
 
@@ -52,7 +51,7 @@ You have two ways to run this application:
 >
 > ###### 2. Run docker container
 >
-> `sudo docker run --name=responder -d -p 8090:8090 -v /var/opt/responder/:/var/opt/responder/ -v /var/log/responder/:/var/log/responder/ responder`
+> `sudo docker run --name=responder -d -p 80:8090 -v /var/log/responder/:/var/log/responder/ responder`
 
 -------------
 
