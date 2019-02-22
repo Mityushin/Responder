@@ -10,6 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * Component for logging controller and service methods with Spring AOP
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Aspect
 @Component
 public class LoggerAspect {

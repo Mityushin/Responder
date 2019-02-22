@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ru.mityushin.responder.dto.CallbackDto;
 import ru.mityushin.responder.service.CallbackService;
 
+/**
+ * Controller for VK API requests
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Controller
 @RequestMapping(value = "/callbacks")
 @RequiredArgsConstructor

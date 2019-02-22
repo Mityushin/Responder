@@ -7,8 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Configuration application beans
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Configuration
-public class Config {
+public class ResponderApplicationConfiguration {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();

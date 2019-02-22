@@ -12,12 +12,25 @@ import ru.mityushin.responder.util.exception.MessageSenderException;
 
 import java.net.URI;
 
+/**
+ * Support component for {@code VkMessageSenderService}
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Component
 @RequiredArgsConstructor
 public class VkUriCreator {
     private final VkApiConfigurationProperties vkApiProperties;
     private final ObjectMapper objectMapper;
 
+    /**
+     * {@code URI} creator with required VK API and other incoming params
+     *
+     * @param dto data transfer object contains params needed in result {@code URI}
+     * @return a {@code URI} instance with specified VK API access token,
+     * VK API version and other params given from param
+     */
     public URI createUri(MessagesSendDto dto) {
         try {
             MultiValueMap<String, String> map = objectMapper.convertValue(dto, LinkedMultiValueMap.class);

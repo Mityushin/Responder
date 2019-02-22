@@ -11,6 +11,12 @@ import ru.mityushin.responder.util.exception.MessageSenderException;
 import java.net.URI;
 import java.util.Objects;
 
+/**
+ * Message sender service which work with VK API
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Service
 @RequiredArgsConstructor
 public class VkMessageSenderService implements MessageSenderService<MessagesSendDto> {

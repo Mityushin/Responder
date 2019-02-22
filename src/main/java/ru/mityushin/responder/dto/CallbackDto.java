@@ -8,6 +8,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
+/**
+ * Data transfer object for VK API callbacks
+ *
+ * @author Dmitry Mityushin
+ * @see <a href="https://vk.com/dev/callback_api">https://vk.com/dev/callback_api</a>
+ * @since 1.0
+ */
 @Builder
 @Getter
 @AllArgsConstructor
