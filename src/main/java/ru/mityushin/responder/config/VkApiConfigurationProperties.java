@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * Configuration properties for VK API
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Component
 @Getter
 @Setter

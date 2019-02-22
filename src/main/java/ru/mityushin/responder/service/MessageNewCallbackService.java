@@ -12,6 +12,12 @@ import java.security.InvalidParameterException;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Callback service which support handle {@code confirmation} and {@code message_new} callbacks
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Service
 @RequiredArgsConstructor
 public class MessageNewCallbackService implements CallbackService {

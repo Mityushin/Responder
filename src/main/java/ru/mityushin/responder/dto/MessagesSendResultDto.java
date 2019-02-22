@@ -5,6 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data transfer object for VK API {@code Messages.send} response
+ *
+ * @author Dmitry Mityushin
+ * @see <a href="https://vk.com/dev/messages.send">https://vk.com/dev/messages.send</a>
+ * @since 1.0
+ */
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +28,5 @@ public class MessagesSendResultDto {
         Long errorCode;
         @JsonProperty(value = "error_msg")
         String errorMsg;
-//        @JsonProperty(value = "request_params")
-//        Map<String, String> requestParams;
     }
 }

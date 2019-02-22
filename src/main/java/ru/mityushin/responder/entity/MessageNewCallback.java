@@ -8,6 +8,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Database entity for saving VK API callbacks
+ *
+ * @author Dmitry Mityushin
+ * @since 1.0
+ */
 @Entity
 @Builder
 @Getter

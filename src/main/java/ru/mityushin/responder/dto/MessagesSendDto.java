@@ -11,6 +11,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Data transfer object for VK API {@code Messages.send} request
+ *
+ * @author Dmitry Mityushin
+ * @see <a href="https://vk.com/dev/messages.send">https://vk.com/dev/messages.send</a>
+ * @since 1.0
+ */
 @Builder
 @Getter
 @Setter
