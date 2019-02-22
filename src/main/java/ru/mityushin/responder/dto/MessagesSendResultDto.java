@@ -21,7 +21,5 @@ public class MessagesSendResultDto {
         Long errorCode;
         @JsonProperty(value = "error_msg")
         String errorMsg;
-//        @JsonProperty(value = "request_params")
-//        Map<String, String> requestParams;
     }
 }
