@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -25,6 +26,7 @@ public class MessageNewCallback {
     private Long date;
     private Long peerId;
     private Long fromId;
+    @Column(columnDefinition="TEXT")
     private String text;
     private Long groupId;
 }
