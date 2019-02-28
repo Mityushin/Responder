@@ -53,7 +53,7 @@ public class MessageNewCallbackService implements CallbackService {
         MessageNewCallback saved = messageNewCallbackRepository.save(messageNewCallback);
         MessagesSendDto dto = MessagesSendDto.builder()
                 .peerId(saved.getPeerId())
-                .message(saved.getText())
+                .message("Вы сказали: ".concat(saved.getText()))
                 .groupId(saved.getGroupId())
                 .build();
         messageSenderService.send(dto);
@@ -66,7 +66,7 @@ public class MessageNewCallbackService implements CallbackService {
                 .date(Long.parseLong(String.valueOf(map.get("date"))))
                 .peerId(Long.parseLong(String.valueOf(map.get("peer_id"))))
                 .fromId(Long.parseLong(String.valueOf(map.get("from_id"))))
-                .text("Вы сказали: " + map.get("text"))
+                .text(String.valueOf(map.get("text")))
                 .groupId(callbackDto.getGroupId())
                 .build();
     }
