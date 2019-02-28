@@ -18,6 +18,7 @@
 #### 2. Setup VK API properties
 > 1. Open `src/main/resources/vk.properties`
 > 2. Specify params gotten from VK
+> 3. (Optional) Open `src/main/java/ru/mityushin/responder/controller/CallbackController.java` and put your Callback URL value in `@RequestMapping` annotation
 >
 > | Variable name       | Description                      |
 > |---------------------|----------------------------------|
