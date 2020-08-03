@@ -1,5 +1,6 @@
 package ru.mityushin.responder.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,12 +20,15 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CallbackDto {
     private CallbackType type;
     private Map<String, Object> object;
     @JsonProperty(value = "group_id")
     private Long groupId;
     private String secret;
+    @JsonProperty(value = "event_id")
+    private String eventId;
 
     public enum CallbackType {
         message_new, confirmation
